@@ -1,0 +1,22 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "MERN shopping app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Conorryan1996/Conorryan1996.git"
+  },
+  "author": "Conor Ryan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Conorryan1996/Conorryan1996/issues"
+  },
+  "homepage": "https://github.com/Conorryan1996/Conorryan1996#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
