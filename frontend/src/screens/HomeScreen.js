@@ -18,7 +18,7 @@ useEffect(() => {
 
   return (
     <>
-    <h1>Latest Products</h1>
+    <h1>Latest Offers:</h1>
     {loading ? <Loader />
      : error 
      ? <Message>{error}</Message> : 
