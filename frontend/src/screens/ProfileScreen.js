@@ -98,6 +98,7 @@ const {success} = userUpdateProfile
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
+        <br></br>
         <Button type='submit' variant='primary'>
           Update
         </Button>
