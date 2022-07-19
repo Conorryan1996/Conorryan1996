@@ -19,6 +19,7 @@ useEffect(() => {
   return (
     <>
     <h1>Latest Offers:</h1>
+    <h3>Orders over $200.00 shipped <strong> FREE</strong> </h3>
     {loading ? <Loader />
      : error 
      ? <Message>{error}</Message> : 
