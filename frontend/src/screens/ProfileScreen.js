@@ -39,8 +39,8 @@ const {loading:loadingOrders, error:errorOrders, orders} = orderListMy
         navigate('/login')
     }else {
         if(!user.name){
-            dispatch(getUserDetails('profile'),listMyOrders())
-            
+            dispatch(getUserDetails('profile'))
+            dispatch(listMyOrders())
         }else{
             setName(user.name)
             setEmail(user.email)
@@ -127,20 +127,30 @@ const {loading:loadingOrders, error:errorOrders, orders} = orderListMy
               </tr>
             </thead>
             <tbody>
-              {orders.map(order => (
+            {orders.map((order) => (
                 <tr key={order._id}>
                   <td>{order._id}</td>
-                  <td>{order._createdAt.substring(0,10)}</td>
+                  <td>{order.createdAt.substring(0, 10)}</td>
                   <td>{order.totalPrice}</td>
-                  <td>{order.isPaid ? ( order.paidAt.substring(0,10) ) : (
-                    <i className='fas fa-times' style={{color: 'red'}}></i>
-                  )}</td>
-                   <td>{order.isDelivered ? order.deliveredAt.substring(0,10) : (
-                    <i className='fas fa-times' style={{color: 'red'}}></i>
-                  )}</td>
+                  <td>
+                    {order.isPaid ? (
+                      order.paidAt.substring(0, 10)
+                    ) : (
+                      <i className='fas fa-times' style={{ color: 'red' }}></i>
+                    )}
+                  </td>
+                  <td>
+                    {order.isDelivered ? (
+                      order.deliveredAt.substring(0, 10)
+                    ) : (
+                      <i className='fas fa-times' style={{ color: 'red' }}></i>
+                    )}
+                  </td>
                   <td>
                     <LinkContainer to={`/order/${order._id}`}>
-                      <Button variant='light'>Details</Button>
+                      <Button className='btn-sm' variant='light'>
+                        Details
+                      </Button>
                     </LinkContainer>
                   </td>
                 </tr>

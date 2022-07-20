@@ -65,7 +65,6 @@ const getUserProfile =  asyncHandler(async (req,res) => {
         res.status(404)
         throw new Error('User not found')
     }
-    res.send('Success')
   })
 
   const updateUserProfile =  asyncHandler(async (req,res) => {
