@@ -17,7 +17,7 @@ const UserListScreen = () => {
     const {userInfo} = userLogin
 
     const userDelete = useSelector(state => state.userDelete)
-    const {success:successDelete} = userDelete
+    const {success: successDelete} = userDelete
 
     useEffect(() =>  {
         if(userInfo && userInfo.isAdmin) {
@@ -26,7 +26,7 @@ const UserListScreen = () => {
         } else {
             navigate('/login')
         }
-    }, [dispatch, navigate, successDelete])
+    }, [dispatch, navigate, successDelete, userInfo])
     
     const deleteHandler = (id) => {
         if(window.confirm('This will DELETE the user & all of their data from the database. Are you sure?')) {
