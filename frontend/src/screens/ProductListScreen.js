@@ -40,7 +40,7 @@ const productDelete = useSelector(state => state.productDelete)
     }, [dispatch, navigate, userInfo, successDelete, successCreate, createdProduct])
     
     const deleteHandler = (id) => {
-        if(window.confirm('This will DELETE the user & all of their data from the database. Are you sure?')) {
+        if(window.confirm('This will DELETE the product & all of its data from the database. Are you sure?')) {
         dispatch(deleteProduct(id))
     }}
 
