@@ -5,14 +5,18 @@ import {LinkContainer} from 'react-router-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
+import Paginate from '../components/Paginate'
+import { useParams } from 'react-router-dom'
 import { listProducts, deleteProduct, createProduct } from '../actions/productActions'
 import { PRODUCT_CREATE_RESET } from '../constants/productConstants'
 const ProductListScreen = () => {
+    const params = useParams()
+    const pageNumber = params.pageNumber || 1
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const productList = useSelector(state => state.productList)
-    const {loading,error,products} = productList
+    const {loading,error,products,page,pages} = productList
 
 const productDelete = useSelector(state => state.productDelete)
     const {loading: loadingDelete,error:errorDelete, success:successDelete} = productDelete
@@ -35,9 +39,9 @@ const productDelete = useSelector(state => state.productDelete)
             navigate(`/admin/product/${createdProduct._id}/edit`)
 
         } else {
-            dispatch(listProducts())
+            dispatch(listProducts('',pageNumber))
         }
-    }, [dispatch, navigate, userInfo, successDelete, successCreate, createdProduct])
+    }, [dispatch, navigate, userInfo, successDelete, successCreate, createdProduct,pageNumber])
     
     const deleteHandler = (id) => {
         if(window.confirm('This will DELETE the product & all of its data from the database. Are you sure?')) {
@@ -66,6 +70,7 @@ const productDelete = useSelector(state => state.productDelete)
     {loadingCreate && <Loader />}
     {errorCreate && <Message variant='danger'>{errorCreate}</Message>}
       {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message>  : (
+        <>
         <Table striped bordered hover responsive className='table-sm'>
             <thead>
                 <tr>
@@ -100,6 +105,8 @@ const productDelete = useSelector(state => state.productDelete)
                 ))}
                 </tbody>
         </Table>
+        <Paginate pages={pages} page={page} isAdmin={true}/>
+        </>
       )}
     </>
   )
