@@ -21,7 +21,7 @@ const Header = () => {
      <Navbar bg="dark" variant='dark' expand="lg" collapseOnSelect>
   <Container>
     <LinkContainer to='/'>
-    <Navbar.Brand>e-Buy Store</Navbar.Brand>
+    <Navbar.Brand>Ireland PC Parts </Navbar.Brand>
     </LinkContainer>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
@@ -31,7 +31,7 @@ const Header = () => {
         <Nav.Link><i className='fas fa-shopping-cart'></i>Cart</Nav.Link>
         </LinkContainer>
         {userInfo ? (
-            <NavDropdown title={userInfo.name} id ='username'>
+            <NavDropdown title={userInfo.name} id ='username'>  
               <LinkContainer to='/profile'>
                 <NavDropdown.Item> Profile</NavDropdown.Item>
               </LinkContainer>
@@ -53,7 +53,9 @@ const Header = () => {
               <NavDropdown.Item> Orders</NavDropdown.Item>
             </LinkContainer>
           </NavDropdown>
+
         )}
+
       </Nav>
     </Navbar.Collapse>
   </Container>

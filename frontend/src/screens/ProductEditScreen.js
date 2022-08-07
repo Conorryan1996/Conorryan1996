@@ -99,6 +99,7 @@ const { loading:loadingUpdate, error:errorUpdate, success:successUpdate } = prod
     </Link>
     <FormContainer>
       <h1>Enter new details for product</h1>
+      <h3> <strong>Ensure image atleast 640 x 510 pixels for resizing </strong></h3>
         {loadingUpdate && <Loader />}
         {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
      {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
@@ -122,7 +123,7 @@ const { loading:loadingUpdate, error:errorUpdate, success:successUpdate } = prod
            ></Form.Control>
          </Form.Group>
          <Form.Group controlId='image'>
-           <Form.Label>Image</Form.Label>
+           <Form.Label>Image </Form.Label>
            <Form.Control
              type='text'
              placeholder='Enter image URL'
