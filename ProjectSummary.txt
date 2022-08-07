@@ -1,0 +1,6 @@
+ADMIN LOGIN ACCESS: admin@admin.com
+
+PAYPAL ACCOUNT INFORMATION: In order to complete the transaction via paypal, you can use the below:
+
+username/email: sb-ttk6s19178049@personal.example.com
+pwd: =n@$ZjA5
